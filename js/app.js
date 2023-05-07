@@ -3,19 +3,19 @@ let profiles = [
         username: 'eva',
         gender : 'Female',
         age: 24,
-        birthday: '04 February 1990',
+        birthday: '07 May 1990',
     },
     {
         username: 'Mohammad',
         gender : 'Male',
         age: 24,
-        birthday: '04 May 1996',
+        birthday: '07 May 1996',
     },
     {
         username: 'Majd',
         gender : 'Female',
         age: 24,
-        birthday: '04 May 1999',
+        birthday: '07 May 1999',
     },
     {
         username: 'Rawan',
@@ -28,8 +28,10 @@ let profiles = [
 let profilesContainer = document.getElementById('birthday__profile-container')
 let currentDate= new Date();
 let  month = currentDate.toLocaleString('default', { month: 'long' });
-let day = currentDate.getDay();
+let day = currentDate.getDate();
 let year = currentDate.getFullYear();
+let counter=document.getElementById("counter");
+let birthdayCounter=0
 let maleProfile=['assets/img/male.png','assets/img/male-2.png','assets/img/male-3.png']
 let femaleProfile=['assets/img/female.png','assets/img/female-2.png','assets/img/female-3.png']
 console.log(day)
@@ -40,6 +42,8 @@ for(let profile of profiles){
  let  birthday = profile.birthday.split(' ')
     if(birthday[1] === month && birthday[0] == day ){
     //Way 1 : The easy way
+        birthdayCounter++;
+        counter.innerHTML=`${birthdayCounter} birthdays today`
          randompic=[];
         if(profile.gender == "Male"){
             randompic = maleProfile;
